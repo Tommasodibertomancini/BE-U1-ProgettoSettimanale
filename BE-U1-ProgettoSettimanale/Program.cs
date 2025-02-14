@@ -53,9 +53,13 @@ while (true)
         {
             Console.WriteLine("Inserisci un cognome valido che abbia 2 o più caratteri!");
             Console.Write("Inserisci il cognome del Contribuente: ");
+        } else if (!ContainsOnlyLetters(cognome))
+        {
+            Console.WriteLine("Il cognome può contenere solo lettere(A - Z, a - z).");
+            Console.Write("Inserisci il cognome del Contribuente: ");
         }
 
-    }while (string.IsNullOrWhiteSpace(cognome) || cognome.Length <= 1);
+    }while (string.IsNullOrWhiteSpace(cognome) || cognome.Length <= 1 || !ContainsOnlyLetters(cognome));
 
     DateTime dataDiNascita;
     while (true)
@@ -117,7 +121,6 @@ while (true)
             break;
         }
         Console.WriteLine("Reddito non valido, riprova.");
-        Console.Write("Inserisci il reddito annuale del Contribuente (i centesimi separati da una virgola): ");
     }
 
     Contribuente contribuente = new Contribuente(nome, cognome, dataDiNascita, codiceFiscale, sesso, comuneResidenza, ral);
@@ -129,9 +132,17 @@ while (true)
     Console.WriteLine("\n==================================================");
     Console.Write("\nVuoi effettuare un nuovo calcolo? (S/N): ");
     string risposta = Console.ReadLine().ToUpper();
-    if (risposta != "S")
+    switch (risposta)
     {
-        break;
+        case "S":
+            continue;
+        case "N":
+            Console.WriteLine("Grazie per averci scelto!");
+            return;
+        default:
+            Console.WriteLine("Scelta non valida");
+            continue;
+
     }
 
 }
