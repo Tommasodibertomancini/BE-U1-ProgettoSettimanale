@@ -17,13 +17,17 @@ while (true)
 
              if (string.IsNullOrWhiteSpace(nome) || nome.Length <= 2)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Il nome deve contenere almeno 3 caratteri!");
+            Console.ResetColor();
             Console.Write("Inserisci il nome del Contribuente: ");
         }
         
         else if (!ContainsOnlyLetters(nome))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Il nome può contenere solo lettere (A-Z, a-z).");
+            Console.ResetColor();
             Console.Write("Inserisci il nome del Contribuente: ");
         }
 
@@ -51,11 +55,15 @@ while (true)
 
         if (string.IsNullOrWhiteSpace(cognome) || cognome.Length <= 1)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Inserisci un cognome valido che abbia 2 o più caratteri!");
+            Console.ResetColor();
             Console.Write("Inserisci il cognome del Contribuente: ");
         } else if (!ContainsOnlyLetters(cognome))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Il cognome può contenere solo lettere(A - Z, a - z).");
+            Console.ResetColor();
             Console.Write("Inserisci il cognome del Contribuente: ");
         }
 
@@ -69,7 +77,9 @@ while (true)
         {
             break;
         }
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Data non valida! Assicurati che sia in formato corretto (gg-mm-yyyy) e che l'anno sia dal 1900 in poi.");
+        Console.ResetColor();
     }
 
     char sesso;
@@ -81,7 +91,9 @@ while (true)
         {
             break;
         }
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Sesso non valido, inserire M o F.");
+        Console.ResetColor();
     }
 
     Console.Write("Inserisci il codice fiscale del Contribuente: ");
@@ -93,7 +105,9 @@ while (true)
 
         if (string.IsNullOrWhiteSpace(codiceFiscale) || codiceFiscale.Length != 16 || !char.IsLetter(codiceFiscale[15]))
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Errore! Il codice fiscale deve essere di 16 caratteri e terminare con una lettera (A-Z).");
+            Console.ResetColor();
             Console.Write("Inserisci il codice fiscale del Contribuente: ");
         }
 
@@ -106,7 +120,9 @@ while (true)
         comuneResidenza = Console.ReadLine();
         if (string.IsNullOrWhiteSpace(comuneResidenza) || comuneResidenza.Length <= 1)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Inserire un comune di residenza che abbia 2 o più caratteri!");
+            Console.ResetColor();
             Console.Write("Inserisci il comune di residenza del Contribuente: ");
         }
     } while (string.IsNullOrWhiteSpace(comuneResidenza) || comuneResidenza.Length <= 1);
@@ -120,7 +136,9 @@ while (true)
         {
             break;
         }
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Reddito non valido, riprova.");
+        Console.ResetColor();
     }
 
     Contribuente contribuente = new Contribuente(nome, cognome, dataDiNascita, codiceFiscale, sesso, comuneResidenza, ral);

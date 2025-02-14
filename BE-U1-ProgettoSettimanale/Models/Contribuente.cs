@@ -61,6 +61,7 @@ namespace BE_U1_ProgettoSettimanale.Models
                    $"Codice fiscale: {CodiceFiscale}\n\n" +
                    $"Reddito dichiarato: {Ral.ToString("N2")}\n" +
                    $"IMPOSTA DA VERSARE: Euro {CalcoloImposta().ToString("N2")}";
+
         }
 
     }
